@@ -4,5 +4,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+@foreach (var pie in Model)
+{
+    <div>
+        <h2>@pie.Name</h2>
+        <h3>@pie.Price</h3>
+    </div>
+}
 
