@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using MVC_Core_test.Models;
 
 namespace MVC_Core_test
 {
@@ -15,6 +16,11 @@ namespace MVC_Core_test
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //if some is asking for an IPieRepository, a new MockPieRepository will be returned. (Transient = new instance every time)
+            services.AddTransient<IPieRepository, MockPieRepository>();
+
+
             services.AddMvc();
         }
 
