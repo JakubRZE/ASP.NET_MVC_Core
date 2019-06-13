@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MVC_Core_test.Models;
+using MVC_Core_test.ViewModels;
 
 namespace MVC_Core_test.Controllers
 {
@@ -19,7 +20,13 @@ namespace MVC_Core_test.Controllers
         {
             var pies = _pieRepository.GetAllPies().OrderBy(p => p.Name);
 
-            return View(pies);
+            var homeViewModel = new HomeViewModel()
+            {
+                Title = "Welcome",
+                Pies = pies.ToList()
+            };
+
+            return View(homeViewModel);
         }
     }
 }
