@@ -19,7 +19,8 @@ namespace MVC_Core_test.Models
         private void InitializePies()
         {
             _pies = new List<Pie> {
-                new Pie { Id = 1, Name = "Apple pie", Price=3.50M, LongDescription="nothing", ShortDescription="nothing much", ImageUrl="#", ImageThumbnailUrl="#", IsPieOfTheWeek=true}
+                new Pie { Id = 1, Name = "Apple pie", Price=3.50M, LongDescription="nothing", ShortDescription="nothing much", ImageUrl="#", ImageThumbnailUrl="#", IsPieOfTheWeek=true},
+                new Pie { Id = 1, Name = "Pear pie", Price=7M, LongDescription="nothing", ShortDescription="nothing much", ImageUrl="#", ImageThumbnailUrl="#", IsPieOfTheWeek=true}
             };
         }
 
