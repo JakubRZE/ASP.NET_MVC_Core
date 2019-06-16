@@ -32,6 +32,7 @@ namespace MVC_Core_test
 
             //if some is asking for an IPieRepository, a new MockPieRepository will be returned. (Transient = new instance every time)
             services.AddTransient<IPieRepository, PieRepository>();
+            services.AddTransient<IFeedbackRepository, FeedbackRepository>();
 
 
             services.AddMvc();

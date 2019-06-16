@@ -15,5 +15,7 @@ namespace MVC_Core_test.Data
         }
 
         public DbSet<Pie> Pies { get; set; }
+
+        public DbSet<Feedback> Feedbacks { get; set; }
     }
 }
