@@ -30,7 +30,7 @@ namespace MVC_Core_test
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            //if some is asking for an IPieRepository, a new MockPieRepository will be returned. (Transient = new instance every time)
+            //if some is asking for an IPieRepository, a new PieRepository will be returned. (Transient = new instance every time)
             services.AddTransient<IPieRepository, PieRepository>();
             services.AddTransient<IFeedbackRepository, FeedbackRepository>();
 
