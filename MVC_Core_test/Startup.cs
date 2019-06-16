@@ -48,6 +48,7 @@ namespace MVC_Core_test
 
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
