@@ -26,28 +26,40 @@ namespace MVC_Core_test
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddDbContext<AppDbContext>(options =>
-        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-        //if some is asking for an IPieRepository, a new MockPieRepository will be returned. (Transient = new instance every time)
-        services.AddTransient<IPieRepository, PieRepository>();
-
-
-        services.AddMvc();
-    }
-
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-        if (env.IsDevelopment())
         {
-            app.UseDeveloperExceptionPage();
+            services.AddDbContext<AppDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            //if some is asking for an IPieRepository, a new MockPieRepository will be returned. (Transient = new instance every time)
+            services.AddTransient<IPieRepository, PieRepository>();
+
+
+            services.AddMvc();
         }
 
-        app.UseStatusCodePages();
-        app.UseStaticFiles();
-        app.UseMvcWithDefaultRoute();
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseStatusCodePages();
+            app.UseStaticFiles();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}"
+                    );
+
+                //routes.MapRoute(
+                //   name: "default_2..",
+                //   template: "{controller=Home}/{action=Index}/{id?}/{searchStr?}"
+                //   );
+            }
+            );
+        }
     }
-}
 }

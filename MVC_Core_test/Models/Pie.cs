@@ -22,5 +22,7 @@ namespace MVC_Core_test.Models
         public string ImageThumbnailUrl { get; set; }
 
         public bool IsPieOfTheWeek { get; set; }
+
+        public bool IsInStock { get; set; }
     }
 }
